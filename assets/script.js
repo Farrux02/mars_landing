@@ -17,11 +17,6 @@ window.addEventListener("load", () => {
     telValue = e.target.value;
   });
 
-  //   const formSubmit = (e) => {
-  //     e.preventDefault();
-  //     console.log(nameValue, surnameValue, telValue);
-  //   };
-
   const getCookie = async () => {
     let response = await fetch("https://gso.amocrm.ru/humans/visitor", {
       method: "GET",
@@ -36,22 +31,12 @@ window.addEventListener("load", () => {
     console.log(res.visitor_uid);
     visitor_uid = res.visitor_uid;
   });
-  const formData = new FormData();
-  const date = new Date();
+  // const date = new Date();
 
-  const datePost = JSON.stringify({ datetime: date, referer: "" });
-
-  console.log(datePost);
-  console.log(visitor_uid);
+  // const datePost = JSON.stringify({ datetime: date, referer: "" });
 
   const postMethod = async (e) => {
     e.preventDefault();
-    formData.append("fields[name_1]", `${nameValue} ${surnameValue}`);
-    formData.append("fields[875069_1][451775]", `+998${telValue}`);
-    formData.append("form_id", 899833);
-    formData.append("hash", "9367fbb25908ffe1345ccdb61d5f3bac");
-    formData.append("user_origin", datePost);
-    formData.append("visitor_uid", visitor_uid);
     let bodyRequest = {
       "fields[name_1]": `${nameValue} ${surnameValue}`,
       "fields[875069_1][451775]": `+998${telValue}`,
