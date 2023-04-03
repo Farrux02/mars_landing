@@ -40,14 +40,16 @@ window.addEventListener("load", () => {
     let bodyRequest = {
       "fields[name_1]": `${nameValue} ${surnameValue}`,
       "fields[875069_1][451775]": `+998${telValue}`,
-      "form_id": 899833,
-      "hash": "9367fbb25908ffe1345ccdb61d5f3bac",
-      "visitor_uid": visitor_uid
-    }
-    await fetch("https://landing.marsit.uz", {
+      form_id: 899833,
+      hash: "9367fbb25908ffe1345ccdb61d5f3bac",
+      visitor_uid: visitor_uid,
+    };
+    await fetch("http://localhost:3000/", {
       method: "POST",
       // body: formData,
       body: JSON.stringify(bodyRequest),
+    }).then(() => {
+      (firstname.value = ""), (surname.value = ""), (telNumber.value = "");
     });
   };
 

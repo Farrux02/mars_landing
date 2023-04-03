@@ -60,7 +60,8 @@ http
       request.on("end", async () => {
         const data = await JSON.parse(body);
         req.post({
-          url: "https://forms.amocrm.ru/queue/add",
+          // url: "https://forms.amocrm.ru/queue/add",
+          url: "https://forms.amocrm.ru/queue/",
           formData: data
         })
       });

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mars IT School</title>
+    <link rel="stylesheet" href="./assets/bootstrap.min.css" />
+    <script src="./assets/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body id="app">
@@ -26,6 +28,7 @@
         </div>
       </div>
       <div class="form-wrapper">
+        <img src="./assets/mars-logo.png" alt="mars-logo" class="logo" />
         <form class="form" id="amoForm">
           <h1 class="heading">Xush kelibsiz</h1>
           <p class="title">Ro’yxatdan o’ting</p>
@@ -56,8 +59,34 @@
               required
             />
           </div>
-          <button class="form-btn">Ro’yxatdan o’tish</button>
+          <button
+            class="form-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Ro’yxatdan o’tish
+          </button>
         </form>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <h2 class="modal-content__heading">Tabriklaymiz!</h2>
+            <p class="modal-content__text">
+              Siz ro’yxatdan muvaffaqiyatli o’tdingiz.
+            </p>
+            <p class="modal-content__text">
+              Mutahassislarimiz tez orada siz bilan bog’lanishadi!
+            </p>
+          </div>
+        </div>
       </div>
     </main>
 

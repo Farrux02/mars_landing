@@ -1,4 +1,11 @@
-* {
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding: 0;
   margin: 0;
 }
@@ -8,7 +15,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: url("../assets/Web\ banner\ 1.1.png") no-repeat center;
+  background: url("./Web-banner-1.1.png") no-repeat center;
   background-size: cover;
   overflow: hidden;
 }
@@ -23,6 +30,23 @@
   justify-content: space-between;
   align-items: center;
   height: calc(100vh);
+  .modal-content {
+    padding: 30px;
+    &__heading {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 120%;
+      color: #0e0d5d;
+    }
+    &__text {
+      margin-top: 20px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 120%;
+      text-align: center;
+      color: #212121;
+    }
+  }
 }
 
 .form-wrapper {
@@ -32,7 +56,14 @@
   justify-content: center;
   padding: 50px;
   background: #ffffff;
+  padding-top: 30px;
   border-radius: 35px;
+  .logo {
+    width: 146px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
   .heading {
     font-weight: 700;
     font-size: 27px;
@@ -48,7 +79,7 @@
       right: 90px;
       width: 28px;
       height: 28px;
-      background-image: url("../assets/hand-img.png");
+      background-image: url("./hand-img.png");
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -71,13 +102,12 @@
     background: #ffffff;
     border: 1px solid #16233c;
     border-radius: 15px;
-    width: 353px;
+    width: 100%;
     font-weight: 400;
     font-size: 15px;
     line-height: 20px;
     color: #16233b;
     margin-bottom: 20px;
-    height: 30px;
     outline: none;
     &::placeholder {
       font-weight: 400;
@@ -96,10 +126,9 @@
     border: 1px solid #16233c;
     padding: 15px 20px;
     display: flex;
-    width: 353px;
+    width: 100%;
     align-items: center;
     border-radius: 15px;
-    height: 30px;
     p {
       padding-right: 10px;
       border-right: 1px solid #000000;
@@ -145,7 +174,7 @@
     &__title {
       font-weight: 700;
       font-size: 30px;
-      color: #e33d0e;
+      color: #ff7d58;
     }
   }
 }
@@ -165,7 +194,7 @@
     h2 {
       font-weight: 700;
       font-size: 26px;
-      color: #e33d0e;
+      color: #ff7d58;
     }
     p {
       font-weight: 400;
@@ -177,7 +206,7 @@
       content: "";
       width: 100px;
       height: 40px;
-      background-image: url("../assets/047-placeholder-6.png");
+      background-image: url("./047-placeholder-6.png");
       left: 2px;
       top: 8px;
       background-size: contain;
@@ -188,17 +217,40 @@
 
 @media (max-width: 470px) {
   #app {
-    background-image: url("../assets/For\ Phone\ 1.1.png");
+    // background-image: url("./For-Phone-1.1.png");
     background-size: cover;
-    background-position-y: -180px;
+    background-position-x: -180px;
+    overflow: auto;
   }
   .main {
+    display: flex;
     justify-content: center;
-    flex-direction: column;
+    /* align-items: center; */
+    height: 100vh;
+  }
+  .text-wrapper {
+    height: 85%;
+    align-self: center;
+    .address-wrapper {
+      justify-content: space-around;
+    }
   }
   .form-wrapper {
+    position: absolute;
+    // width: calc(90% - 40px);
     border-radius: 20px;
     padding: 20px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    .logo {
+      height: 40px;
+      margin-bottom: 0;
+    }
     .heading {
       font-size: 22px;
       padding-bottom: 10px;
@@ -210,15 +262,7 @@
       margin: 10px 0;
     }
   }
-  .form-input {
-    max-width: 250px;
-    height: 15px;
-    margin-bottom: 12px;
-  }
-  .form__number-wrapper {
-    max-width: 250px;
-    height: 15px;
-  }
+
   .form-btn {
     max-width: 290px;
     margin-top: 12px;
@@ -251,6 +295,14 @@
         height: 30px;
       }
     }
+  }
+}
+@media (max-width: 380px) {
+  .text-wrapper {
+    height: 90%;
+  }
+  .address-wrapper .address h2 {
+    font-size: 14px;
   }
 }
 input::-webkit-outer-spin-button,
