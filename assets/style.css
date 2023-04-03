@@ -235,7 +235,7 @@ h6 {
 @media (max-width: 470px) {
   #app {
     background-size: cover;
-    background-position-x: -180px;
+    background-position-x: -800px;
     overflow: auto;
   }
   .main {
