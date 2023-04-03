@@ -122,6 +122,15 @@ h6 {
       margin-left: 10px;
     }
   }
+  .input-err {
+    border-color: red;
+  }
+  .err {
+    display: none;
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+  }
   &__number-wrapper {
     border: 1px solid #16233c;
     padding: 15px 20px;
@@ -297,9 +306,9 @@ h6 {
     }
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 391px) {
   .text-wrapper {
-    height: 90%;
+    height: 95%;
   }
   .address-wrapper .address h2 {
     font-size: 14px;

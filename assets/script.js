@@ -4,6 +4,8 @@ window.addEventListener("load", () => {
   const telNumber = window.document.querySelector("#tel");
   const form = window.document.querySelector("#amoForm");
   const submit = window.document.querySelector(".form-btn");
+  const inputs = window.document.querySelectorAll("input");
+  const errMsg = window.document.querySelector(".err");
 
   let nameValue, surnameValue, telValue;
 
@@ -16,6 +18,8 @@ window.addEventListener("load", () => {
   telNumber.addEventListener("input", (e) => {
     telValue = e.target.value;
   });
+
+  console.log(errMsg);
 
   const getCookie = async () => {
     let response = await fetch("https://gso.amocrm.ru/humans/visitor", {
@@ -31,12 +35,18 @@ window.addEventListener("load", () => {
     console.log(res.visitor_uid);
     visitor_uid = res.visitor_uid;
   });
-  // const date = new Date();
-
-  // const datePost = JSON.stringify({ datetime: date, referer: "" });
 
   const postMethod = async (e) => {
     e.preventDefault();
+
+    for (let i = 0; i < inputs.length; i++) {
+      if (!inputs[i].value) {
+        errMsg.style.display = 'block';
+      } else {
+        submit.setAttribute('data-bs-toggle', 'modal')
+      }
+    }
+
     let bodyRequest = {
       "fields[name_1]": `${nameValue} ${surnameValue}`,
       "fields[875069_1][451775]": `+998${telValue}`,
