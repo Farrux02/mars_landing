@@ -8,6 +8,7 @@ window.addEventListener("load", () => {
   const submit = window.document.querySelector(".form-btn");
   const inputs = window.document.querySelectorAll("input");
   const errMsg = window.document.querySelector(".err");
+  const modal = window.document.querySelector(".modal");
 
   let nameValue, surnameValue, telValue;
 
@@ -41,13 +42,26 @@ window.addEventListener("load", () => {
     }
     return true;
   };
+
+  function showModal() {
+    modal.style.display = "block";
+  }
+
+  function hideModal() {
+    modal.style.display = "none";
+  }
+  window.addEventListener("click", function (event) {
+    if (event.target == modal) {
+      hideModal();
+    }
+  });
   const postMethod = async (e) => {
     e.preventDefault();
 
     const isFlled = isInputsFilled();
 
     if (isFlled) {
-      submit.setAttribute("data-bs-toggle", "modal");
+      showModal();
       let bodyRequest = {
         "fields[name_1]": `${nameValue} ${surnameValue}`,
         "fields[875069_1][451775]": `+998${telValue}`,
@@ -66,7 +80,6 @@ window.addEventListener("load", () => {
       errMsg.style.display = "block";
     }
   };
-
   // form.addEventListener("submit", postMethod);
 
   submit.addEventListener("click", postMethod);
