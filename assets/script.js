@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
   const firstname = window.document.querySelector("#firstname");
   const surname = window.document.querySelector("#surname");
@@ -19,8 +21,6 @@ window.addEventListener("load", () => {
     telValue = e.target.value;
   });
 
-  console.log(errMsg);
-
   const getCookie = async () => {
     let response = await fetch("https://gso.amocrm.ru/humans/visitor", {
       method: "GET",
@@ -35,35 +35,39 @@ window.addEventListener("load", () => {
     console.log(res.visitor_uid);
     visitor_uid = res.visitor_uid;
   });
-
+  const isInputsFilled = () => {
+    if (document.querySelectorAll("input:invalid").length > 0) {
+      return false;
+    }
+    return true;
+  };
   const postMethod = async (e) => {
     e.preventDefault();
 
-    for (let i = 0; i < inputs.length; i++) {
-      if (!inputs[i].value) {
-        errMsg.style.display = 'block';
-      } else {
-        submit.setAttribute('data-bs-toggle', 'modal')
-      }
-    }
+    const isFlled = isInputsFilled();
 
-    let bodyRequest = {
-      "fields[name_1]": `${nameValue} ${surnameValue}`,
-      "fields[875069_1][451775]": `+998${telValue}`,
-      form_id: 899833,
-      hash: "9367fbb25908ffe1345ccdb61d5f3bac",
-      visitor_uid: visitor_uid,
-    };
-    await fetch("https://landing.marsit.uz/", {
-      method: "POST",
-      // body: formData,
-      body: JSON.stringify(bodyRequest),
-    }).then(() => {
-      (firstname.value = ""), (surname.value = ""), (telNumber.value = "");
-    });
+    if (isFlled) {
+      submit.setAttribute("data-bs-toggle", "modal");
+      let bodyRequest = {
+        "fields[name_1]": `${nameValue} ${surnameValue}`,
+        "fields[875069_1][451775]": `+998${telValue}`,
+        form_id: 899833,
+        hash: "9367fbb25908ffe1345ccdb61d5f3bac",
+        visitor_uid: visitor_uid,
+      };
+      await fetch("https://landing.marsit.uz/", {
+        method: "POST",
+        // body: formData,
+        body: JSON.stringify(bodyRequest),
+      }).then(() => {
+        (firstname.value = ""), (surname.value = ""), (telNumber.value = "");
+      });
+    } else {
+      errMsg.style.display = "block";
+    }
   };
 
-  //   form.addEventListener("click", postMethod);
+  // form.addEventListener("submit", postMethod);
 
   submit.addEventListener("click", postMethod);
 });
