@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mars IT School</title>
-    <!-- <link rel="stylesheet" href="./assets/bootstrap.min.css" /> -->
-    <!-- <script src="./assets/bootstrap.min.js"></script> -->
     <link rel="stylesheet" href="./assets/style.css" />
     <link
       rel="shortcut icon"
@@ -75,20 +73,41 @@
           </button>
         </form>
       </div>
-
-      <div class="modal">
-        <div class="modal-content">
-          <h2 class="modal-content__heading">Tabriklaymiz!</h2>
-          <p class="modal-content__text">
-            Siz ro’yxatdan muvaffaqiyatli o’tdingiz.
-          </p>
-          <p class="modal-content__text">
-            Mutahassislarimiz tez orada siz bilan bog’lanishadi!
-          </p>
-        </div>
-      </div>
     </main>
-
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "281756520817530");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=281756520817530&ev=PageView&noscript=1"
+    /></noscript>
     <script type="module" src="./node/app.js"></script>
     <script src="./assets/script.js"></script>
     <script

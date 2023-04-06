@@ -43,25 +43,12 @@ window.addEventListener("load", () => {
     return true;
   };
 
-  function showModal() {
-    modal.style.display = "block";
-  }
-
-  function hideModal() {
-    modal.style.display = "none";
-  }
-  window.addEventListener("click", function (event) {
-    if (event.target == modal) {
-      hideModal();
-    }
-  });
   const postMethod = async (e) => {
     e.preventDefault();
 
     const isFlled = isInputsFilled();
 
     if (isFlled) {
-      showModal();
       let bodyRequest = {
         "fields[name_1]": `${nameValue} ${surnameValue}`,
         "fields[875069_1][451775]": `+998${telValue}`,
@@ -69,12 +56,13 @@ window.addEventListener("load", () => {
         hash: "9367fbb25908ffe1345ccdb61d5f3bac",
         visitor_uid: visitor_uid,
       };
-      await fetch("https://landing.marsit.uz/", {
+      await fetch("http://petstore.swagger.io/v2/pet", {
         method: "POST",
         // body: formData,
         body: JSON.stringify(bodyRequest),
       }).then(() => {
         (firstname.value = ""), (surname.value = ""), (telNumber.value = "");
+        window.location.href = "/gratitude.html";
       });
     } else {
       errMsg.style.display = "block";
