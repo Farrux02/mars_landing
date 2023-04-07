@@ -56,7 +56,7 @@ window.addEventListener("load", () => {
         hash: "9367fbb25908ffe1345ccdb61d5f3bac",
         visitor_uid: visitor_uid,
       };
-      await fetch("http://petstore.swagger.io/v2/pet", {
+      await fetch("https://landing.marsit.uz/", {
         method: "POST",
         // body: formData,
         body: JSON.stringify(bodyRequest),
